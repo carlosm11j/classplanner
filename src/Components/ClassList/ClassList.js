@@ -7,7 +7,7 @@ import Class from '../Class/Class';
 class ClassList extends React.Component {
   render() {
     return (
-      <div>
+      <div className="ClassList">
         <Class name="Math"/>
         <Class name="Art"/>
       </div>

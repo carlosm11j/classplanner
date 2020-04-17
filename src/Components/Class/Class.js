@@ -16,7 +16,10 @@ class Class extends React.Component {
 
   render() {
     return (
-      <h2 className="classname">{this.state.name}</h2>
+      <div className="Class">
+        <h4 className="classname">{this.state.name}</h4>
+      </div>
+
     );
   }
 };
