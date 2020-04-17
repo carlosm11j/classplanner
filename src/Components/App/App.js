@@ -11,15 +11,19 @@ class App extends React.Component {
     };
   }
 
+  addNewYear() {
+    
+  }
+
   render() {
     return (
       <div>
         <div className="banner">
           <h1 className="logo">classPlanner</h1>
-          <h2 className="account">Welcome, <span className="username">{this.state.user}</span></h2>
+          <h2 className="accountName">Welcome, <span className="username">{this.state.user}</span></h2>
         </div>
         <div className="App">
-          //Year Component
+          <YearList />
         </div>
       </div>
     );

@@ -7,13 +7,13 @@ class Class extends React.Component {
     super(props);
 
     this.state = {
-        
+      
     };
   }
 
   render() {
     return (
-
+      <h2 className="classname"></h2>
     );
   }
 };
