@@ -1,0 +1,8 @@
+.YearList {
+  display: flex;
+  margin: auto;
+  border: 3px solid blue;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 4.4rem 10%;
+}

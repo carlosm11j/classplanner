@@ -7,14 +7,11 @@ class YearList extends React.Component {
   render() {
     return (
       <div className="YearList">
-        {
-          this.props.years.map(year => {
-            return <Year year={year} key={year.id} />
-          })
-        }
+        <Year id={1}/>
+        <Year id={2}/>
       </div>
     );
   }
-}
+};
 
 export default YearList;

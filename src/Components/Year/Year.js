@@ -1,5 +1,9 @@
 import React from 'react';
 
+import './Year.css';
+
+import ClassList from '../ClassList/ClassList';
+
 class Year extends React.Component {
   constructor(props) {
     super(props);
@@ -12,20 +16,13 @@ class Year extends React.Component {
   render() {
     return (
       <div className="Year">
-        <h2>Year {this.state.id}</h2>
-        <div className="Business-information">
-          <div className="Business-address">
-            <p>{this.props.business.address}</p>
-            <p>{this.props.business.city}</p>
-            <p>{`${this.props.business.state} ${this.props.business.zipCode}`}</p>
-          </div>
-          <div className="Business-reviews">
-            <h3>{this.props.business.category.toUpperCase()}</h3>
-            <h3 className="rating">{`${this.props.business.rating} stars`}</h3>
-            <p>{`${this.props.business.reviewCount} reviews`}</p>
-          </div>
+        <h2>Year {this.props.id}</h2>
+        <div className="Class-list">
+          <ClassList />
         </div>
       </div>
     );
   }
 };
+
+export default Year;

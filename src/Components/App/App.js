@@ -1,18 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+
+import YearList from '../YearList/YearList';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     //Set up state of app
     this.state = {
-      user: 'Carlos'
+      user: 'Carlos',
+      years: []
     };
   }
 
   addNewYear() {
-    
+
   }
 
   render() {
@@ -23,11 +26,11 @@ class App extends React.Component {
           <h2 className="accountName">Welcome, <span className="username">{this.state.user}</span></h2>
         </div>
         <div className="App">
-          <YearList />
+          <YearList years={this.state.years}/>
         </div>
       </div>
     );
   }
-}
+};
 
 export default App;

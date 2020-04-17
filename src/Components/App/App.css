@@ -14,8 +14,24 @@ input:focus {
   outline: none;
 }
 
-/* Reusable Component - YearList */
+/* Banner */
 
-.YearList {
-  
+.banner .accountName {
+  padding-right: 50px;
+  text-align: right;
 }
+
+.banner .username {
+  color: gray
+}
+
+.banner .username:hover {
+  color: blue;
+}
+
+.banner .logo {
+  padding-left: 50px;
+  text-align: left;
+}
+
+/* Reusable Component - YearList */
