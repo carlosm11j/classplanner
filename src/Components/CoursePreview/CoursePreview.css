@@ -1,4 +1,4 @@
-.Class {
+.CoursePreview {
   border: 3px solid black;
   border-radius: 5px;
   width: 140px;
@@ -6,11 +6,11 @@
   margin-bottom: 10px;
 }
 
-.Class:hover {
+.CoursePreview:hover {
   background-color: orange;
 }
 
-.Class-name {
+.CoursePreview-name {
   text-align: center;
   flex: auto;
   display:table-cell;

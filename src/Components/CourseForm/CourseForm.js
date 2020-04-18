@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-class ClassForm extends React.Component {
+class CourseForm extends React.Component {
   const classes = useStyles();
   render() {
     return (

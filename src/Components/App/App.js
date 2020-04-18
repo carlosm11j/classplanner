@@ -10,12 +10,11 @@ class App extends React.Component {
     //Set up state of app
     this.state = {
       user: 'Carlos',
-      years: []
     };
   }
 
-  addNewYear() {
-
+  handleYearOnClick(event) {
+    
   }
 
   render() {
@@ -26,7 +25,7 @@ class App extends React.Component {
           <h2 className="accountName">Welcome, <span className="username">{this.state.user}</span></h2>
         </div>
         <div className="App">
-          <YearList years={this.state.years}/>
+          <YearList />
         </div>
       </div>
     );

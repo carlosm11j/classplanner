@@ -2,23 +2,15 @@ import React from 'react';
 
 import './Year.css';
 
-import ClassList from '../ClassList/ClassList';
+import CourseList from '../CourseList/CourseList';
 
 class Year extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      id: 1
-    };
-  }
-
   render() {
     return (
       <div className="Year-box">
         <h2 className="Year-title">Year {this.props.id}</h2>
-        <div className="Class-list">
-          <ClassList />
+        <div className="Course-list">
+          <CourseList />
         </div>
       </div>
     );
