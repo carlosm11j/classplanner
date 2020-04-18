@@ -15,8 +15,8 @@ class Year extends React.Component {
 
   render() {
     return (
-      <div className="Year">
-        <h2>Year {this.props.id}</h2>
+      <div className="Year-box">
+        <h2 className="Year-title">Year {this.props.id}</h2>
         <div className="Class-list">
           <ClassList />
         </div>

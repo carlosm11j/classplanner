@@ -1,13 +1,19 @@
-.Year {
-  display: flex;
-  border: 3px solid black;
+.Year-box {
+  display: table-header-group;
   width: 150px;
   height: 400px;
+  border: 3px solid black;
   justify-content: space-around;
-  flex-wrap: wrap;
   margin: 1.4rem 5%;
 }
 
-.Year:hover {
-  background-color: gray;
+.Year-title {
+  text-align: left;
+  padding: 5px 5px;
+}
+
+.Class-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

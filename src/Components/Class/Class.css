@@ -1,4 +1,19 @@
 .Class {
   border: 3px solid black;
   border-radius: 5px;
+  width: 140px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.Class:hover {
+  background-color: orange;
+}
+
+.Class-name {
+  text-align: center;
+  flex: auto;
+  display:table-cell;
+  font-size: 18px;
+  padding: 5px;
 }
