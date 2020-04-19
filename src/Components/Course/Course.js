@@ -1,8 +1,6 @@
 import React from 'react';
 
-import './CoursePreview.css';
-
-class CoursePreview extends React.Component {
+class Course extends React.Component {
   render() {
     return (
       <div className="Course">
@@ -12,4 +10,4 @@ class CoursePreview extends React.Component {
   }
 };
 
-export default CoursePreview;
+export default Course;

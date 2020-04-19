@@ -1,8 +1,6 @@
 import React from 'react';
 
-import './CourseList.css';
-
-import CoursePreview from '../CoursePreview/CoursePreview';
+import Course from '../Course/Course';
 
 class CourseList extends React.Component {
   constructor(props) {
