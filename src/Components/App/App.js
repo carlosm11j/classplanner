@@ -13,10 +13,6 @@ class App extends React.Component {
     };
   }
 
-  handleYearOnClick(event) {
-    
-  }
-
   render() {
     return (
       <div>

@@ -15,8 +15,15 @@ button {
   margin-top: 18%;
   border-radius: 100%;
   color: black;
+  font-size: 12px;
+}
+
+button:hover {
+  border: 3px solid black;
+  font-size: 14px;
 }
 
 button:active {
-  background-color: black;
+  border: 1px solid black;
+  font-size: 10px;
 }
