@@ -1,36 +1,41 @@
 import React from 'react';
 
-import './App.css';
-
 import YearList from '../YearList/YearList';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    //Set up state of app
-    this.state = {
-      user: 'Carlos',
-      years: []
-    };
-  }
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
-  addNewYear() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    marginBottom: theme.spacing(10),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
-  }
+export default function ButtonAppBar() {
+  const classes = useStyles();
 
-  render() {
-    return (
+  return (
       <div>
-        <div className="banner">
-          <h1 className="logo">classPlanner</h1>
-          <h2 className="accountName">Welcome, <span className="username">{this.state.user}</span></h2>
+        <div className={classes.root}>
+          <AppBar position="static" color="secondary">
+            <Toolbar>
+              <Typography variant="h6" className={classes.title}>
+                classPlanner
+              </Typography>
+              <Button color="inherit">Login</Button>
+            </Toolbar>
+          </AppBar>
         </div>
         <div className="App">
-          <YearList years={this.state.years}/>
+          <YearList />
         </div>
       </div>
     );
-  }
 };
-
-export default App;

@@ -1,17 +1,28 @@
 import React from 'react';
-import './YearList.css';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 import Year from '../Year/Year';
+import CourseForm from '../CourseForm/CourseForm';
 
-class YearList extends React.Component {
-  render() {
-    return (
-      <div className="YearList">
-        <Year id={1}/>
-        <Year id={2}/>
-      </div>
-    );
-  }
-};
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
 
-export default YearList;
+export default function YearList() {
+  const classes = useStyles();
+  const [spacing] = React.useState(6);
+
+  return (
+    <Grid container className={classes.root} spacing={2}>
+      <Grid item md={12}>
+        <Grid container justify="center" spacing={spacing}>
+          <Year />
+        </Grid>
+      </Grid>
+    </Grid>
+  );
+}

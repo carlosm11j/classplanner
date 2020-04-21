@@ -2,27 +2,38 @@ import React from 'react';
 
 import './Year.css';
 
-import ClassList from '../ClassList/ClassList';
+import CourseList from '../CourseList/CourseList';
+import CourseForm from '../CourseForm/CourseForm';
 
-class Year extends React.Component {
-  constructor(props) {
-    super(props);
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
-    this.state = {
-      id: 1
-    };
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 300,
+    maxWidth: 360,
+    height: 400,
+    backgroundColor: theme.palette.background.paper
   }
+}));
 
-  render() {
-    return (
-      <div className="Year-box">
-        <h2 className="Year-title">Year {this.props.id}</h2>
-        <div className="Class-list">
-          <ClassList />
-        </div>
-      </div>
-    );
-  }
-};
+export default function Year() {
+  const classes = useStyles();
 
-export default Year;
+  return (
+    <Grid item>
+      <Card className={classes.root} elevation={6}>
+        <CardContent>
+          <Typography className={classes.title} color="textPrimary" gutterBottom>
+            Year
+          </Typography>
+          <CourseList />
+          <CourseForm />
+        </CardContent>
+      </Card>
+    </Grid>
+  );
+}
