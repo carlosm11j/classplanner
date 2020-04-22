@@ -1,11 +1,14 @@
 import React from 'react';
 
-import Course from '../Course/Course';
 import DisplayCourse from '../DisplayCourse/DisplayCourse';
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+
+const courseList = [];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +37,9 @@ export default function CourseList() {
         <li key={`section-${sectionId}`} className={classes.listSection}>
           <ul className={classes.ul}>
             <ListSubheader>{sectionId}</ListSubheader>
-            <Course />
+              <ListItem button>
+                <ListItemText primary={'Math'} />
+              </ListItem>
           </ul>
         </li>
       ))}

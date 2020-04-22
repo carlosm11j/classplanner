@@ -59,7 +59,7 @@ export default function TransitionsModal() {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (event) => {
     setOpen(false);
   };
 
@@ -87,7 +87,7 @@ export default function TransitionsModal() {
             <form className={classes.root} noValidate autoComplete="off">
               <h2>New Course</h2>
               <TextField
-                id="standard-select-currency"
+                id="term"
                 select
                 label="Term"
                 value={term}
@@ -102,6 +102,7 @@ export default function TransitionsModal() {
               <TextField
                 id="full-course-name"
                 label="Full Course Name"
+                fullWidth
                 placeholder="ex. Calculus IV"
                 color="secondary"
               />
@@ -125,6 +126,13 @@ export default function TransitionsModal() {
                 label="Units"
                 type="number"
                 color="secondary"
+              />
+              <TextField
+                id="standard-multiline-static"
+                label="Notes"
+                multiline
+                rows={4}
+                placeholder="Professor, Time, etc"
               />
             <Button variant="outlined" onClick={handleClose} color="primary">Submit</Button>
             </form>
