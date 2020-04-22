@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Year() {
+export default function Year(props) {
   const classes = useStyles();
 
   return (
@@ -28,8 +29,9 @@ export default function Year() {
       <Card className={classes.root} elevation={6}>
         <CardContent>
           <Typography className={classes.title} color="textPrimary" gutterBottom>
-            Year
+            Year {props.id}
           </Typography>
+          <Divider />
           <CourseList />
           <CourseForm />
         </CardContent>

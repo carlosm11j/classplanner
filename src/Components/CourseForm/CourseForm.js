@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
+import Divider from '@material-ui/core/Divider';
 
 const terms = [
   {
@@ -29,37 +31,15 @@ const terms = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(2),
-      width: '50ch',
-      display: 'flex',
-    },
-  },
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
-
-export default function TransitionsModal() {
-  const classes = useStyles();
+export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
   const [term, setTerm] = React.useState('Fall');
 
-  const handleOpen = () => {
+  const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = (event) => {
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -69,76 +49,90 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <IconButton onClick={handleOpen}>
+      <IconButton onClick={handleClickOpen}>
         <AddIcon color="black"/>
       </IconButton>
-      <Modal
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <form className={classes.root} noValidate autoComplete="off">
-              <h2>New Course</h2>
-              <TextField
-                id="term"
-                select
-                label="Term"
-                value={term}
-                onChange={handleChange}
-              >
-                {terms.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                id="full-course-name"
-                label="Full Course Name"
-                fullWidth
-                placeholder="ex. Calculus IV"
-                color="secondary"
-              />
-              <TextField
-                required
-                id="department"
-                label="Department"
-                placeholder="ex. MATH"
-                color="secondary"
-              />
-              <TextField
-                required
-                id="number"
-                label="Number"
-                placeholder="ex. 14"
-                color="secondary"
-              />
-              <TextField
-                required
-                id="unites"
-                label="Units"
-                type="number"
-                color="secondary"
-              />
-              <TextField
-                id="standard-multiline-static"
-                label="Notes"
-                multiline
-                rows={4}
-                placeholder="Professor, Time, etc"
-              />
-            <Button variant="outlined" onClick={handleClose} color="primary">Submit</Button>
-            </form>
-          </div>
-        </Fade>
-      </Modal>
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">New Course</DialogTitle>
+        <Divider />
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="term"
+            select
+            label="Term"
+            value={term}
+            onChange={handleChange}
+            fullWidth
+          >
+            {terms.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="full-course-name"
+            label="Full Course Name"
+            fullWidth
+            placeholder="ex. Calculus IV"
+            color="secondary"
+            fullWidth
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            required
+            id="department"
+            label="Department"
+            placeholder="ex. MATH"
+            color="secondary"
+            fullWidth
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            required
+            id="number"
+            type="number"
+            label="Number"
+            placeholder="ex. 14"
+            color="secondary"
+            fullWidth
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            required
+            id="unites"
+            label="Units"
+            type="number"
+            color="secondary"
+            fullWidth
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="standard-multiline-static"
+            label="Notes"
+            multiline
+            rows={4}
+            placeholder="Professor, Time, etc"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button variant="outlined" onClick={handleClose} color="primary">
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
