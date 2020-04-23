@@ -31,7 +31,7 @@ const terms = [
   },
 ];
 
-export default function FormDialog() {
+export default function CourseForm(props) {
   const [open, setOpen] = React.useState(false);
   const [term, setTerm] = React.useState('Fall');
 
@@ -47,13 +47,17 @@ export default function FormDialog() {
     setTerm(event.target.value);
   };
 
+  const handleSave = (event) => {
+    props.addCourse(event.target.value);
+  };
+
   return (
     <div>
       <IconButton onClick={handleClickOpen}>
         <AddIcon color="black"/>
       </IconButton>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">New Course</DialogTitle>
+        <DialogTitle id="form-dialog-title">New course: Year {props.year}</DialogTitle>
         <Divider />
         <DialogContent>
           <TextField
@@ -107,7 +111,7 @@ export default function FormDialog() {
             autoFocus
             margin="dense"
             required
-            id="unites"
+            id="units"
             label="Units"
             type="number"
             color="secondary"
@@ -116,11 +120,11 @@ export default function FormDialog() {
           <TextField
             autoFocus
             margin="dense"
-            id="standard-multiline-static"
+            id="notes"
             label="Notes"
             multiline
             rows={4}
-            placeholder="Professor, Time, etc"
+            placeholder="Professor, Time, Core Requirement, etc"
             fullWidth
           />
         </DialogContent>
@@ -128,7 +132,7 @@ export default function FormDialog() {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button variant="outlined" onClick={handleClose} color="primary">
+          <Button variant="outlined" onClick={handleSave} color="primary">
             Save
           </Button>
         </DialogActions>

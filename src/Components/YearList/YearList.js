@@ -1,10 +1,9 @@
 import React from 'react';
 
+import Year from '../Year/Year';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
-import Year from '../Year/Year';
-import CourseForm from '../CourseForm/CourseForm';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 
@@ -14,28 +13,40 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-let yearCount = 1;
-let years = [<Year id={yearCount}/>];
+class YearList extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default function YearList() {
-  const classes = useStyles();
-  const [spacing] = React.useState(6);
+    this.state = {
+      yearCount: 2,
+      years: [<Year id={1}/>],
+    };
 
-  const addNewYear = (event) => {
-    yearCount++;
-    years = years.concat(<Year id={yearCount}/>);
-  };
+    this.addNewYear = this.addNewYear.bind(this);
+  }
 
-  return (
-    <Grid container className={classes.root} spacing={2}>
-      <Grid item md={12}>
-        <Grid container justify="center" spacing={spacing}>
-          {years}
-          <IconButton className="add-button" onClick={addNewYear}>
-            <AddIcon color="black"/>
-          </IconButton>
+  addNewYear(event) {
+    const years = this.state.years;
+    this.setState({yearCount: this.state.yearCount + 1});
+    this.setState({
+       years: years.concat(<Year id={this.state.yearCount} />)
+    });
+  }
+
+  render() {
+    return (
+      <Grid container className="Year-list" spacing={2}>
+        <Grid item md={12}>
+          <Grid container justify="center" spacing={4}>
+            {this.state.years}
+            <IconButton className="add-button" onClick={this.addNewYear}>
+              <AddIcon color="black"/>
+            </IconButton>
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
-  );
+    );
+  }
 }
+
+export default YearList;

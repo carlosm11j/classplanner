@@ -31,18 +31,24 @@ const useStyles = makeStyles((theme) => ({
 export default function CourseList() {
   const classes = useStyles();
 
+  const addCourse = (name, department, number, units, notes) => {
+
+  }
+
   return (
-    <List className={classes.root} subheader={<li />}>
-      {['Fall', 'Winter', 'Spring', 'Summer'].map((sectionId) => (
-        <li key={`section-${sectionId}`} className={classes.listSection}>
-          <ul className={classes.ul}>
-            <ListSubheader>{sectionId}</ListSubheader>
-              <ListItem button>
-                <ListItemText primary={'Math'} />
-              </ListItem>
-          </ul>
-        </li>
-      ))}
-    </List>
+    <div>
+      <List className={classes.root} subheader={<li />}>
+        {['Fall', 'Winter', 'Spring', 'Summer'].map((sectionId) => (
+          <li key={`section-${sectionId}`} className={classes.listSection}>
+            <ul className={classes.ul}>
+              <ListSubheader>{sectionId}</ListSubheader>
+                <ListItem button>
+                  <ListItemText primary={'Math'} />
+                </ListItem>
+            </ul>
+          </li>
+        ))}
+      </List>
+    </div>
   );
 }

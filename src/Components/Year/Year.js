@@ -33,7 +33,8 @@ export default function Year(props) {
           </Typography>
           <Divider />
           <CourseList />
-          <CourseForm />
+          <Divider />
+          <CourseForm year={props.id}/>
         </CardContent>
       </Card>
     </Grid>
