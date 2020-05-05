@@ -1,17 +1,12 @@
 import React from 'react';
 
+import './YearList.css';
 import Year from '../Year/Year';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
 
 class YearList extends React.Component {
   constructor(props) {
@@ -39,7 +34,7 @@ class YearList extends React.Component {
         <Grid item md={12}>
           <Grid container justify="center" spacing={4}>
             {this.state.years}
-            <IconButton className="add-button" onClick={this.addNewYear}>
+            <IconButton className="add-button" edge="end" onClick={this.addNewYear}>
               <AddIcon color="black"/>
             </IconButton>
           </Grid>

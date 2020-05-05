@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './CourseList.css';
+
 import DisplayCourse from '../DisplayCourse/DisplayCourse';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,45 +12,25 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 
 const courseList = [];
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-    position: 'relative',
-    overflow: 'auto',
-    maxHeight: 300,
-  },
-  listSection: {
-    backgroundColor: 'inherit',
-  },
-  ul: {
-    backgroundColor: 'inherit',
-    padding: 0,
-  },
-}));
-
-export default function CourseList() {
-  const classes = useStyles();
-
-  const addCourse = (name, department, number, units, notes) => {
-
-  }
-
-  return (
-    <div>
-      <List className={classes.root} subheader={<li />}>
+class CourseList extends React.Component {
+  render() {
+    return (
+      <List className="root">
         {['Fall', 'Winter', 'Spring', 'Summer'].map((sectionId) => (
-          <li key={`section-${sectionId}`} className={classes.listSection}>
-            <ul className={classes.ul}>
+          <li key={`section-${sectionId}`}>
+            <ul>
               <ListSubheader>{sectionId}</ListSubheader>
                 <ListItem button>
+                  <ListItemText primary={'Math'} />
+                  <ListItemText primary={'Math'} />
                   <ListItemText primary={'Math'} />
                 </ListItem>
             </ul>
           </li>
         ))}
       </List>
-    </div>
-  );
+    );
+  }
 }
+
+export default CourseList;

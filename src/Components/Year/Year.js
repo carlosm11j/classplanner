@@ -11,32 +11,30 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: 300,
-    maxWidth: 360,
-    height: 400,
-    backgroundColor: theme.palette.background.paper
+class Year extends React.Component {
+  constructor(props) {
+    super(props);
   }
-}));
 
-export default function Year(props) {
-  const classes = useStyles();
-
-  return (
-    <Grid item>
-      <Card className={classes.root} elevation={6}>
-        <CardContent>
-          <Typography className={classes.title} color="textPrimary" gutterBottom>
-            Year {props.id}
-          </Typography>
-          <Divider />
-          <CourseList />
-          <Divider />
-          <CourseForm year={props.id}/>
-        </CardContent>
-      </Card>
-    </Grid>
-  );
+  render() {
+    return (
+      <Grid className="root" item>
+        <Card elevation={6}>
+          <CardContent>
+            <Typography className="title" color="textPrimary" gutterBottom>
+              Year {this.props.id}
+            </Typography>
+            <Divider />
+            <Paper className="courselist"><CourseList /></Paper>
+            <Divider />
+            <CourseForm year={this.props.id}/>
+          </CardContent>
+        </Card>
+      </Grid>
+    );
+  }
 }
+
+export default Year;

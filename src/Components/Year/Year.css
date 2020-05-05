@@ -1,3 +1,8 @@
-Card :hover {
-  elevation: 12;
+.root {
+  flex-grow: 1;
+  height: 140;
+  width: 50%;
+}
+.courselist {
+  width: 50%;
 }

@@ -11,6 +11,11 @@ import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import MenuItem from '@material-ui/core/MenuItem';
 import Divider from '@material-ui/core/Divider';
+import Slide from '@material-ui/core/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const terms = [
   {
@@ -56,7 +61,8 @@ export default function CourseForm(props) {
       <IconButton onClick={handleClickOpen}>
         <AddIcon color="black"/>
       </IconButton>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" TransitionComponent={Transition}
+      keepMounted>
         <DialogTitle id="form-dialog-title">New course: Year {props.year}</DialogTitle>
         <Divider />
         <DialogContent>

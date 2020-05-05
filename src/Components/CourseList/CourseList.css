@@ -1,0 +1,16 @@
+.root {
+  width: 100%;
+  max-width: 360;
+  position: relative;
+  overflow: auto;
+  max-height: 300;
+}
+
+li {
+  background-color: inherit;
+}
+
+ul {
+  background-color: inherit;
+  padding: 0;
+}
